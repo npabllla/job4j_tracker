@@ -40,9 +40,11 @@ public class Item {
         this.name = name;
     }
 
-    public static void main(String[] args) {
-        Item item = new Item();
-        Item item1 = new Item(1);
-        Item item2 = new Item(2, "Kirill");
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

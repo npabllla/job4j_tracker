@@ -16,6 +16,7 @@ public class StartUI {
         tracker.add(item3);
         tracker.add(item4);
         System.out.println("Id: " + tracker.findById(4).getId() +"; Name: " + tracker.findById(4).getName());
+        System.out.println(item.toString());
 
     }
 }

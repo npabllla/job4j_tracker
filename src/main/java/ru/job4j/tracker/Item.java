@@ -7,7 +7,6 @@ public class Item {
     private LocalDateTime created = LocalDateTime.now();
 
     public LocalDateTime getCreated() {
-
         return created;
     }
 

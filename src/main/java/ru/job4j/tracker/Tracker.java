@@ -68,12 +68,10 @@ public class Tracker {
             System.out.println("Incorrect id");
             return false;
         } else {
-        for (int i = 0; i < size; i++) {
-            if(items[i].getId() == index){
+            if(items[index].getId() == index){
                 System.arraycopy(items, index + 1, items, index, size - index);
                 res = true;
             }
-        }
         items[size - 1] = null;
         size--;
         }

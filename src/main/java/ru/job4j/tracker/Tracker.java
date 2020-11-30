@@ -52,14 +52,12 @@ public class Tracker {
             System.out.println("Incorrect id");
             return false;
         } else {
-            for (int i = 0; i < size; i++) {
-                if (items[i].getId() == index + 1) {
-                    items[i].setName(item.getName());
+                if (items[index].getId() == index + 1) {
+                    items[index].setName(item.getName());
+                    items[index].setId(index + 1);
                     res = true;
-                    break;
                 }
             }
-        }
         return res;
     }
 

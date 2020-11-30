@@ -48,16 +48,11 @@ public class Tracker {
     public boolean replace(int id, Item item) {
         boolean res = false;
         int index = indexOf(id);
-        if (index < 0){
-            System.out.println("Incorrect id");
-            return false;
-        } else {
-                if (items[index].getId() == index + 1) {
-                    items[index].setName(item.getName());
-                    items[index].setId(index + 1);
-                    res = true;
-                }
-            }
+        if (index != -1) {
+            item.setId(id);
+            items[index] = item;
+            res = true;
+        }
         return res;
     }
 

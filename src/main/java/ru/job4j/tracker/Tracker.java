@@ -24,16 +24,16 @@ public class Tracker {
         return item;
     }
 
-    public Item[] findByName(String key){
+    public Item[] findByName(String key) {
         Item[] temps = new Item[size];
         int counter = 0;
         for (int i = 0; i < size; i++) {
-            if(items[i].getName().equals(key)){
+            if (items[i].getName().equals(key)) {
                 temps[counter] = items[i];
                 counter++;
             }
         }
-        return Arrays.copyOf(temps,counter);
+        return Arrays.copyOf(temps, counter);
     }
 
     public Item findById(int id) {
@@ -42,7 +42,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        return Arrays.copyOf(items,size);
+        return Arrays.copyOf(items, size);
     }
 
     public boolean replace(int id, Item item) {
@@ -59,16 +59,11 @@ public class Tracker {
     public boolean delete(int id) {
         boolean res = false;
         int index = indexOf(id);
-        if (index < 0){
-            System.out.println("Incorrect id");
-            return false;
-        } else {
-            if(items[index].getId() == index){
-                System.arraycopy(items, index + 1, items, index, size - index);
-                res = true;
-            }
-        items[size - 1] = null;
-        size--;
+        if (index != -1) {
+            System.arraycopy(items, index + 1, items, index, size - index);
+            items[size - 1] = null;
+            size--;
+            res = true;
         }
         return res;
     }

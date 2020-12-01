@@ -28,21 +28,39 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item item = new Item(id, name);
                 tracker.replace(id, item);
+                if(tracker.replace(id, item)){
+                    System.out.println("Replace completed successful");
+                } else {
+                    System.out.println("Replace wasn't complete - item wasn't found");
+                }
             } else if (select == 3) {
                 System.out.println("=== Delete item ===");
                 System.out.print("Enter id of item: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 tracker.delete(id);
+                if(tracker.delete(id)){
+                    System.out.println("Deleting completed successful");
+                } else {
+                    System.out.println("Deleting wasn't complete - item wasn't found");
+                }
             } else if (select == 4) {
                 System.out.println("=== Find item by id ===");
                 System.out.print("Enter id of item: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                System.out.println(tracker.findById(id));
+                if(tracker.findById(id) != null) {
+                    System.out.println(tracker.findById(id));
+                } else {
+                    System.out.println("Item not found - id is incorrect");
+                }
             } else if (select == 5) {
                 System.out.println("=== Find item by name ===");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
-                System.out.println(Arrays.toString(tracker.findByName(name)));
+                if(tracker.findByName(name).length > 0) {
+                    System.out.println(Arrays.toString(tracker.findByName(name)));
+                } else {
+                    System.out.println("Items not found - name is incorrect");
+                }
             } else if (select == 6) {
                 System.out.println("=== Exit ===");
                 run = false;

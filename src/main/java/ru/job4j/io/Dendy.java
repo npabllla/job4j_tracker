@@ -12,7 +12,7 @@ public class Dendy {
             System.out.println("2. Супер Марио");
             System.out.println("3. Выйти");
             System.out.print("Введите пункт меню, чтобы начать игру: ");
-            int select = Integer.parseInt(input.nextLine());
+            int select = Integer.valueOf(input.nextLine());
             if (select == 3) {
                 System.out.println("Игра завершена.");
                 run = false;

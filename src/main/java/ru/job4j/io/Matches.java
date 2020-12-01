@@ -8,9 +8,9 @@ public class Matches {
         int matches = 11;
         while (matches > 0) {
             System.out.println("Ход игрока №1");
-            int inputFirst = Integer.parseInt(in.nextLine());
+            int inputFirst = Integer.valueOf(in.nextLine());
             while (inputFirst < 1 || inputFirst > 3){
-                inputFirst = Integer.parseInt(in.nextLine());
+                inputFirst = Integer.valueOf(in.nextLine());
             }
             matches -= inputFirst;
             System.out.println("Осталось: " + matches);
@@ -19,9 +19,9 @@ public class Matches {
                 break;
             }
             System.out.println("Ход игрока №2");
-            int inputSecond = Integer.parseInt(in.nextLine());
+            int inputSecond = Integer.valueOf(in.nextLine());
             while (inputSecond < 1 || inputSecond > 3){
-                inputSecond = Integer.parseInt(in.nextLine());
+                inputSecond = Integer.valueOf(in.nextLine());
             }
             matches -= inputSecond;
             System.out.println("Осталось: " + matches);

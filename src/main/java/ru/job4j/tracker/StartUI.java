@@ -1,8 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
-
-
 public class StartUI {
 
     public void init(Input input, Tracker tracker) {
@@ -16,8 +13,11 @@ public class StartUI {
                 Item item = new Item(name);
                 tracker.add(item);
             } else if (select == 1) {
+                Item[] items = tracker.findAll();
                 System.out.println("=== All items ===");
-                System.out.println(Arrays.toString(tracker.findAll()));
+                for (Item arr:items){
+                    System.out.println(arr);
+                }
             } else if (select == 2) {
                 System.out.println("=== Edit item ===");
                 int id = input.askInt("Enter id: ");
@@ -40,17 +40,21 @@ public class StartUI {
                 }
             } else if (select == 4) {
                 System.out.println("=== Find item by id ===");
-                int id = input.askInt("Enter id of item: ");
-                if(tracker.findById(id) != null) {
-                    System.out.println(tracker.findById(id));
+                int askId = input.askInt("Enter id of item: ");
+                Item item = tracker.findById(askId);
+                if(item != null) {
+                    System.out.println(item);
                 } else {
                     System.out.println("Item not found - id is incorrect");
                 }
             } else if (select == 5) {
                 System.out.println("=== Find item by name ===");
-                String name = input.askStr("Enter name: ");
-                if(tracker.findByName(name).length > 0) {
-                    System.out.println(Arrays.toString(tracker.findByName(name)));
+                String askName = input.askStr("Enter name: ");
+                Item[] items = tracker.findByName(askName);
+                if(items.length > 0) {
+                    for(Item arr:items){
+                        System.out.println(arr);
+                    }
                 } else {
                     System.out.println("Items not found - name is incorrect");
                 }

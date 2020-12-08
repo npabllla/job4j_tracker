@@ -1,9 +1,6 @@
 package ru.job4j.singleton;
 
 import org.junit.Test;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertSame;
 
 public class TrackerSingleTest {

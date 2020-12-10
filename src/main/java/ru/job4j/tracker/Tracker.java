@@ -21,7 +21,7 @@ public class Tracker {
     public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
-        return items.get(item.getId()-1);
+        return item;
     }
 
     public List<Item> findByName(String key) {

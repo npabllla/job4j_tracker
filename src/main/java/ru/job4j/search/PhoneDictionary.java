@@ -9,15 +9,11 @@ public class PhoneDictionary {
         this.persons.add(person);
     }
 
-    /**
-     * Вернуть список всех пользователей, который содержат key в любых полях.
-     * @param key Ключ поиска.
-     * @return Список подощедщих пользователей.
-     */
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
         for(Person arr:persons) {
-            if (arr.getName().contains(key) || arr.getAddress().contains(key) || arr.getPhone().contains(key) || arr.getSurname().contains(key)){
+            if (arr.getName().contains(key) || arr.getAddress().contains(key) ||
+                    arr.getPhone().contains(key) || arr.getSurname().contains(key)){
                 result.add(arr);
             }
         }

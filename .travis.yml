@@ -17,7 +17,7 @@ notifications:
     recipients:
       -npabllla@gmail.com
     on_success: never # default: change
-    on_failure: always # defa,ult: always
+    on_failure: always # default: always
 env:
   global:
     - CODECOV_TOKEN="d8349228-b15b-4d93-953c-c268fd206528"

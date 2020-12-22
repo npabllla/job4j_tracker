@@ -17,8 +17,7 @@ public class FI {
         Arrays.sort(att, comparator);
         Comparator<String> cmpDescSize = (left, right) -> {
             System.out.println("Compare - " + right + " : " + left);
-            return right.compareTo(left);
+            return right.length() - left.length();
         };
-
     }
 }

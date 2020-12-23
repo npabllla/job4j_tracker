@@ -12,11 +12,34 @@ public class PhoneDictionary {
 
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
+        Predicate<Person> name = new Predicate<>() {
+            @Override
+            public boolean test(Person person) {
+                return person.getName().contains(key);
+            }
+        };
+        Predicate<Person> surname = new Predicate<>() {
+            @Override
+            public boolean test(Person person) {
+                return person.getSurname().contains(key);
+            }
+        };
+        Predicate<Person> address = new Predicate<>() {
+            @Override
+            public boolean test(Person person) {
+                return person.getAddress().contains(key);
+            }
+        };
+        Predicate<Person> phone = new Predicate<>() {
+            @Override
+            public boolean test(Person person) {
+                return person.getPhone().contains(key);
+            }
+        };
         Predicate<Person> combine = new Predicate<>() {
             @Override
             public boolean test(Person person) {
-                return person.getName().contains(key) || person.getAddress().contains(key) ||
-                      person.getPhone().contains(key) || person.getSurname().contains(key);
+                return name.or(surname.or(address.or(phone))).test(person);
             }
         };
         for (Person person : persons) {

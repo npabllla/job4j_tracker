@@ -5,6 +5,7 @@ import java.util.Comparator;
 
 public class FI {
     public static void main(String[] args) {
+
         Attachment[] att = {
                 new Attachment("image 1", 20),
                 new Attachment("image 3", 120),
@@ -17,7 +18,7 @@ public class FI {
         Arrays.sort(att, comparator);
         Comparator<String> cmpDescSize = (left, right) -> {
             System.out.println("Compare - " + right + " : " + left);
-            return right.length() - left.length();
+            return Integer.compare(right.length(), left.length());
         };
     }
 }

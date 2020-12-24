@@ -30,7 +30,7 @@ public class ProfileTest {
 
     @Test
     public void whenCollect(){
-        Profile pr = new Profile();
+        Profiles pr = new Profiles();
         List<Address> list = pr.collect(clients);
         List<Address> expected = new ArrayList<>();
         expected.add(new Address("SomeCity#1","SomeStreet#1", 13, 2));

@@ -70,12 +70,12 @@ public class SchoolTest {
         School sc = new School();
         List<Student> studentList = sc.collect(students, pr -> pr.getScore() < 50
                 && pr.getScore() >= 0);
-        Map<String, Integer> rsl = sc.listToMap(studentList);
-        Map<String, Integer> expected = new HashMap<>();
-        expected.put("Surname1", 10);
-        expected.put("Surname2", 20);
-        expected.put("Surname3", 30);
-        expected.put("Surname4", 40);
+        Map<String, Student> rsl = sc.listToMap(studentList);
+        Map<String, Student> expected = new HashMap<>();
+        expected.put("Surname1", new Student(10, "Surname1"));
+        expected.put("Surname2", new Student(20, "Surname2"));
+        expected.put("Surname3", new Student(30, "Surname3"));
+        expected.put("Surname4", new Student(40, "Surname4"));
         assertThat(rsl, is(expected));
     }
 }

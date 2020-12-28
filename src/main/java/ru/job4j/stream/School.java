@@ -6,9 +6,16 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class School {
-    public Map<String, Integer> collect(List<Student> students, Predicate<Student> predicate) {
+    public List<Student> collect(List<Student> students, Predicate<Student> predicate) {
         return students.stream()
                 .filter(predicate)
-                .collect(Collectors.toMap(Student::getSurname, Student::getScore));
+                .collect(Collectors.toList());
+    }
+
+    public Map<String, Integer> listToMap(List<Student> students) {
+        return students.stream()
+                .collect(Collectors.toMap(Student::getSurname,
+                        Student::getScore,
+                        (a1,a2) -> a1));
     }
 }

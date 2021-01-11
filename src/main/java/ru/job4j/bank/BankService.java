@@ -17,28 +17,18 @@ public class BankService {
     }
 
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = Optional.empty();
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                rsl = Optional.of(user);
-                break;
-            }
-        }
-        return rsl;
+        return users.keySet()
+                .stream()
+                .filter(user -> user.getPassport().equals(passport))
+                .findFirst();
     }
 
     public Optional<Account> findByRequisite(String passport, String requisite) {
-       var user = findByPassport(passport);
-       Optional<Account> rsl = Optional.empty();
-        if(user.isPresent()) {
-            for (Account list : users.get(user.get())) {
-                if (list.getRequisite().equals(requisite)) {
-                    rsl = Optional.of(list);
-                    break;
-                }
-            }
-        }
-       return rsl;
+        var user = findByPassport(passport);
+        return user.flatMap(value -> users.get(value)
+                .stream()
+                .filter(u -> u.getRequisite().equals(requisite))
+                .findFirst());
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,

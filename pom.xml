@@ -50,6 +50,14 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <javadocExecutable>${java.home}/../jdk-14.0.1/bin/javadoc</javadocExecutable>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

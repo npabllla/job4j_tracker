@@ -14,8 +14,8 @@ public class ShowAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
-        ArrayList<Item> items = (ArrayList<Item>) tracker.findAll();
+    public boolean execute(Input input, Store sqlTracker) {
+        ArrayList<Item> items = (ArrayList<Item>) sqlTracker.findAll();
         for (Item arr:items){
             System.out.println(arr);
         }

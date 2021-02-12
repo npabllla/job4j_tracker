@@ -12,9 +12,9 @@ public class FindIdAction implements UserAction{
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
-        int askId = input.askInt("Enter id of item: ");
-        Item item = tracker.findById(askId);
+    public boolean execute(Input input, Store sqlTracker) {
+        String askId = input.askStr("Enter id of item: ");
+        Item item = sqlTracker.findById(askId);
         if(item != null) {
             out.println(item);
         } else {

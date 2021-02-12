@@ -14,9 +14,9 @@ public class FindNameAction implements UserAction{
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Store sqlTracker) {
         String askName = input.askStr("Enter name: ");
-        ArrayList<Item> items = (ArrayList<Item>) tracker.findByName(askName);
+        ArrayList<Item> items = (ArrayList<Item>) sqlTracker.findByName(askName);
         if(items.size() > 0) {
             for(Item arr:items){
                 out.println(arr);

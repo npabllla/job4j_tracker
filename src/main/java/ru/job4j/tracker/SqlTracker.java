@@ -122,11 +122,12 @@ public class SqlTracker implements Store {
                 if (resultSet.next()) {
                     result.setId(resultSet.getInt("id"));
                     result.setName(resultSet.getString("name"));
+                    return result;
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return result;
+        return null;
     }
 }

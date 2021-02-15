@@ -3,7 +3,10 @@ package ru.job4j.tracker;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import static org.hamcrest.Matchers.is;

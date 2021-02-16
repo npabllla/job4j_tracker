@@ -63,7 +63,7 @@ public class SqlTracker implements Store, AutoCloseable{
         try (PreparedStatement statement =
                      cn.prepareStatement("update items set name = ? where id = ?")) {
             statement.setString(1, item.getName());
-            statement.setString(2, id);
+            statement.setInt(2, Integer.parseInt(id));
             result = statement.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,7 +76,7 @@ public class SqlTracker implements Store, AutoCloseable{
         boolean result = false;
         try (PreparedStatement statement =
                      cn.prepareStatement("delete from items where id = ?")) {
-            statement.setString(1, id);
+            statement.setInt(1, Integer.parseInt(id));
             result = statement.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,7 +125,7 @@ public class SqlTracker implements Store, AutoCloseable{
     public Item findById(String id) {
         Item result = new Item();
         try (PreparedStatement statement = cn.prepareStatement("select * from items where id = ?")) {
-            statement.setString(1, id);
+            statement.setInt(1, Integer.parseInt(id));
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     result.setId(resultSet.getInt("id"));

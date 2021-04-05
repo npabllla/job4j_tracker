@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
@@ -13,11 +13,32 @@ public class Item implements Comparable<Item>{
 
     private String name;
 
-    @Transient
-    private LocalDateTime created = LocalDateTime.now();
+    private String description;
 
-    public LocalDateTime getCreated() {
-        return created;
+    private Timestamp created;
+
+    public Item(int id, String name, String description, Timestamp created) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.created = created;
+    }
+
+    public Item(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Item(String name){
+        this.name = name;
+    }
+
+    public Item() {
+
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
@@ -32,22 +53,20 @@ public class Item implements Comparable<Item>{
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public String getDescription() {
+        return description;
     }
 
-    public Item() {
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Item(int id) {
-        this.id = id;
+    public Timestamp getCreated() {
+        return created;
     }
-    public Item(String name){
-        this.name = name;
-    }
-    public Item(int id, String name) {
-        this.id = id;
-        this.name = name;
+
+    public void setCreated(Timestamp created) {
+        this.created = created;
     }
 
     @Override

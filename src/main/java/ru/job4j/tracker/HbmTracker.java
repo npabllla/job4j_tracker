@@ -44,7 +44,8 @@ public class HbmTracker implements Store, AutoCloseable {
     public boolean delete(String id) {
         Session session = sf.openSession();
         session.beginTransaction();
-        session.delete(id);
+        Item item = findById(id);
+        session.delete(item);
         session.getTransaction().commit();
         session.close();
         return true;
@@ -77,11 +78,11 @@ public class HbmTracker implements Store, AutoCloseable {
         Session session = sf.openSession();
         session.beginTransaction();
         Query query = session.createQuery("from Item where id=:id");
-        query.setParameter("id", id);
+        query.setParameter("id", Integer.parseInt(id));
         List<Item> result = (List<Item>) query.getResultList();
         session.getTransaction().commit();
         session.close();
-        return result.get(0);
+        return result.size() > 0 ? result.get(0) : null;
     }
 
     @Override

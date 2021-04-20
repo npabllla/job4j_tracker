@@ -11,5 +11,7 @@ public class SpringDI {
         ui.add("Petr Arsentev");
         ui.add("Ivan ivanov");
         ui.print();
+        Store another = context.getBean(Store.class);
+        another.getAll().forEach(System.out::println);
     }
 }
